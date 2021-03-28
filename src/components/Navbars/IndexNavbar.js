@@ -36,9 +36,11 @@ import {
   UncontrolledTooltip,
 } from "reactstrap";
 import asdf from "../../assets/project/logo.png"
+import { useHistory } from "react-router-dom";
 import "./style.scss";
 
 export default function IndexNavbar() {
+  let history = useHistory();
   const [collapseOpen, setCollapseOpen] = React.useState(false);
   const [collapseOut, setCollapseOut] = React.useState("");
   const [color, setColor] = React.useState("navbar-transparent");
@@ -76,12 +78,24 @@ export default function IndexNavbar() {
       .getElementById("download-section")
       .scrollIntoView({ behavior: "smooth" });
   };
+  function learning() {
+    history.push("/Learning");
+  }
+  function Internship() {
+    history.push("/Internship");
+  }
+  function Admissions() {
+    history.push("/Admissions");
+  }
+  function Projects() {
+    history.push("/Projects");
+  }
   return (
     <Navbar className={"fixed-top " + color} color-on-scroll="100" expand="lg" >
       <Container>
         <div className="navbar-translate" >
           <NavbarBrand to="/" tag={Link} id="navbar-brand">
-            <a class="navbar-brand js-scroll-trigger" href = "/" style={{ width :100}}><img alt= "sample" className="img-thumbnail" src={asdf} /></a>
+            <a class="navbar-brand js-scroll-trigger" href="/" style={{ width: 100 }}><img alt="sample" className="img-thumbnail" src={asdf} /></a>
             {/* VTU NATION */}
           </NavbarBrand>
           {/* <UncontrolledTooltip placement="bottom" target="navbar-brand">
@@ -127,7 +141,7 @@ export default function IndexNavbar() {
               <Button
                 className="nav-link d-none d-lg-block"
                 color="default"
-              // onClick={scrollToDownload}
+                onClick={learning}
               >
                 LEARNING
               </Button>
@@ -136,7 +150,7 @@ export default function IndexNavbar() {
               <Button
                 className="nav-link d-none d-lg-block"
                 color="default"
-              // onClick={scrollToDownload}
+              onClick={Admissions}
               >
                 ADMISSIONS
               </Button>
@@ -145,7 +159,7 @@ export default function IndexNavbar() {
               <Button
                 className="nav-link d-none d-lg-block"
                 color="default"
-              // onClick={scrollToDownload}
+              onClick={Internship}
               >
                 INTERNSHIP
               </Button>
@@ -154,16 +168,7 @@ export default function IndexNavbar() {
               <Button
                 className="nav-link d-none d-lg-block"
                 color="default"
-              // onClick={scrollToDownload}
-              >
-                PROJECTS
-              </Button>
-            </NavItem>
-            <NavItem>
-              <Button
-                className="nav-link d-none d-lg-block"
-                color="default"
-              // onClick={scrollToDownload}
+              onClick={Projects}
               >
                 PROJECTS
               </Button>

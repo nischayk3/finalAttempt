@@ -27,6 +27,11 @@ import Index from "views/Index.js";
 import LandingPage from "views/examples/LandingPage.js";
 import RegisterPage from "views/examples/RegisterPage.js";
 import ProfilePage from "views/examples/ProfilePage.js";
+import Admissions from "views/examples/admission.js";
+import Learning from "views/IndexSections/Learning.js";
+import Internship from "views/examples/internship.js";
+import Projects from "views/examples/project.js";
+// import Admissions from "views/examples/admission.js";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -35,6 +40,22 @@ ReactDOM.render(
       <Route
         path="/landing-page"
         render={(props) => <LandingPage {...props} />}
+      />
+      <Route
+        path="/Learning"
+        render={(props) => <Learning {...props} />}
+      />
+      <Route
+        path="/Admissions"
+        render={(props) => <Admissions {...props} />}
+      />
+       <Route
+        path="/Internship"
+        render={(props) => <Internship {...props} />}
+      />
+       <Route
+        path="/Projects"
+        render={(props) => <Projects {...props} />}
       />
       <Route
         path="/register-page"
