@@ -95,13 +95,11 @@ export default function IndexNavbar() {
       <Container>
         <div className="navbar-translate" >
           <NavbarBrand to="/" tag={Link} id="navbar-brand">
-            <a class="navbar-brand js-scroll-trigger" href="/" style={{ width: 100 }}><img alt="sample" className="img-thumbnail" src={asdf} /></a>
-            {/* VTU NATION */}
+            <a class="navbar-brand js-scroll-trigger" href="/" style={{ width: 100,marginTop :15 }}><img alt="sample" className="img-thumbnail" src={asdf} /></a>
+
           </NavbarBrand>
-          {/* <UncontrolledTooltip placement="bottom" target="navbar-brand">
-            Designed and Coded by Creative Tim
-          </UncontrolledTooltip> */}
-          {/* <button
+
+          <button
             aria-expanded={collapseOpen}
             className="navbar-toggler navbar-toggler"
             onClick={toggleCollapse}
@@ -109,7 +107,7 @@ export default function IndexNavbar() {
             <span className="navbar-toggler-bar bar1" />
             <span className="navbar-toggler-bar bar2" />
             <span className="navbar-toggler-bar bar3" />
-          </button> */}
+          </button>
         </div>
         <Collapse
           className={"justify-content-end " + collapseOut}
@@ -118,11 +116,11 @@ export default function IndexNavbar() {
           onExiting={onCollapseExiting}
           onExited={onCollapseExited}
         >
-          {/* <div className="navbar-collapse-header">
+          <div className="navbar-collapse-header">
             <Row>
               <Col className="collapse-brand" xs="6">
                 <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                  BLK•React
+                  VTU NATION
                 </a>
               </Col>
               <Col className="collapse-close text-right" xs="6">
@@ -135,40 +133,100 @@ export default function IndexNavbar() {
                 </button>
               </Col>
             </Row>
-          </div> */}
+            {/* <Row>
+              <Col className="navbar-toggler" xs="6">
+               
+                <Button
+                  className="d-lg-block navbar-toggler"
+                  color="default"
+                  onClick={learning}
+                >
+                  LEARNING
+              </Button>
+               
+              </Col>
+            </Row>
+            <Row>
+              <Col className="navbar-toggler" xs="6">
+               
+                <Button
+                  className="navbar-toggler d-lg-block"
+                  color="default"
+                  onClick={Admissions}
+                >
+                  ADMISSIONS
+              </Button>
+               
+              </Col>
+            </Row>
+            <Row>
+              <Col className="navbar-toggler" xs="6">
+            
+                <Button
+                  className="navbar-toggler d-lg-block"
+                  color="default"
+                  onClick={Internship}
+                >
+                  INTERNSHIP
+              </Button>
+               
+              </Col>
+            </Row>
+            <Row>
+              <Col className="navbar-toggler" xs="6">
+                
+                <Button
+                  className="navbar-toggler d-lg-block"
+                  color="default"
+                  onClick={Projects}
+                >
+                  PROJECTS
+              </Button>
+          
+              </Col>
+            </Row> */}
+          </div>
           <Nav navbar>
             <NavItem>
               <Button
-                className="nav-link d-none d-lg-block"
+                className="btn btn "
                 color="default"
                 onClick={learning}
+                size="sm"
+                style ={{width :113,marginTop :15}}
               >
                 LEARNING
               </Button>
             </NavItem>
             <NavItem>
               <Button
-                className="nav-link d-none d-lg-block"
+                className="btn btn"
                 color="default"
-              onClick={Admissions}
+                onClick={Admissions}
+                size="sm"
+                style ={{width :113,marginTop :15}}
               >
                 ADMISSIONS
               </Button>
             </NavItem>
             <NavItem>
               <Button
-                className="nav-link d-none d-lg-block"
+                className="btn btn"
                 color="default"
-              onClick={Internship}
+                onClick={Internship}
+                size="sm"
+                style ={{width :113,marginTop :15}}
               >
                 INTERNSHIP
               </Button>
             </NavItem>
             <NavItem>
               <Button
-                className="nav-link d-none d-lg-block"
+                className="btn btn"
                 color="default"
-              onClick={Projects}
+                onClick={Projects}
+                size="sm"
+                style ={{width :113,marginTop :15}}
               >
                 PROJECTS
               </Button>
@@ -178,6 +236,8 @@ export default function IndexNavbar() {
                 className="btn btn btn-success"
                 color="default"
               // onClick={scrollToDownload}
+              size="sm"
+              style ={{width :113,marginTop :15}}
               >
                 LogIn
               </Button>
@@ -187,6 +247,8 @@ export default function IndexNavbar() {
                 className="btn btn btn-success"
                 color="default"
               // onClick={scrollToDownload}
+              size="sm"
+              style ={{width :113,marginTop :15}}
               >
                 SignUp
               </Button>
@@ -196,27 +258,63 @@ export default function IndexNavbar() {
                 className="btn btn btn-success"
                 color="default"
               // onClick={scrollToDownload}
+              size="sm"
+              style ={{width :113,marginTop :15}}
               >
                 LOGOUT
               </Button>
             </NavItem>
-            {/* <div className="collapse navbar-collapse" id="navbarResponsive">
-              <ul className="nav navbar-nav mr-auto">
-               
-                <li className="nav-item" role="presentation"><a className="nav-link"
-                >ADMISSIONS</a></li>
-                <li className="nav-item" role="presentation"><a className="nav-link"
-                >INTERNSHIP</a></li>
-                <li className="nav-item" role="presentation"><a className="nav-link"
-                >PROJECTS</a></li>
+          {/* <div className="collapse navbar-collapse" id="navbarResponsive"> */}
+          {/* <ul className="ml-auto navbar-nav">
+            <li className="dropdown nav-item"><a className="nav-link"
+            ><NavItem>
+                <Button
+                  className="nav-link d-none d-lg-block"
+                  color="default"
+                  onClick={learning}
+                >
+                  LEARNING
+                </Button>
+              </NavItem></a></li>
+            <li className="dropdown nav-item"><a className="nav-link"
+            > <NavItem>
+                <Button
+                  className="nav-link d-none d-lg-block"
+                  color="default"
+                  onClick={Admissions}
+                >
+                  ADMISSIONS
+                </Button>
+              </NavItem></a></li>
+            <li className="dropdown nav-item"><a className="nav-link"
+            > <NavItem>
+                <Button
+                  className="nav-link d-none d-lg-block"
+                  color="default"
+                  onClick={Internship}
+                >
+                  INTERNSHIP
+                </Button>
+              </NavItem></a></li>
+            <li className="dropdown nav-item"><a className="nav-link"
+            > <NavItem>
+                <Button
+                  className="nav-link d-none d-lg-block"
+                  color="default"
+                  onClick={Projects}
+                >
+                  PROJECTS
+                </Button>
+              </NavItem></a></li>
 
-              </ul><span className="navbar-text actions"><a className="login h4 btn btn btn-success"
+          </ul> */}
+          {/* <span className="navbar-text actions"><a className="login h4 btn btn btn-success"
               >Log In</a><a
                 className="btn btn btn-success"
               > Sign Up</a > <a
-                className="btn btn btn-success"  > LOGOUT</a ></span >
-            </div > */}
-            {/* <NavItem className="p-0">
+                className="btn btn btn-success"  > LOGOUT</a ></span > */}
+          {/* </div > */}
+          {/* <NavItem className="p-0">
               <NavLink
                 data-placement="bottom"
                 href="https://twitter.com/CreativeTim"
@@ -252,7 +350,7 @@ export default function IndexNavbar() {
                 <p className="d-lg-none d-xl-none">Instagram</p>
               </NavLink>
             </NavItem> */}
-            {/* <UncontrolledDropdown nav>
+          {/* <UncontrolledDropdown nav>
               <DropdownToggle
                 caret
                 color="default"

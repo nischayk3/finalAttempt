@@ -17,13 +17,13 @@
 */
 import React from "react";
 import ΤΗΛΕΚΑΤΑΡΤΙΣΗ from "../../assets/project/ΤΗΛΕΚΑΤΑΡΤΙΣΗ.jpg";
-import internship from "../../assets/project/internship (2).jpg";
+import internship from "../../assets/project/V-internship.jpg";
 import Sastramtechadmission from "../../assets/project/Sastra-mtech-admission.png"
 
 // reactstrap components
 import { Container } from "reactstrap";
 import { UncontrolledCarousel } from "reactstrap";
-
+import "./style.scss"
 export default function PageHeader() {
   const carouselItems = [
     {
@@ -53,16 +53,12 @@ export default function PageHeader() {
       <div className="squares square6" />
       <div className="squares square7" />
       {/* <Container> */}
-      {/* <div className="content-center brand">
-          <h1 className="h1-seo">VTU NATION</h1>
-          <h3 className="d-none d-sm-block">
-           One Stop Solution for all VTU Needs.
-          </h3>
-        </div> */}
-      <UncontrolledCarousel items={carouselItems} />
-      {/* <Container>
+      <div className="content-center brand">
+           <UncontrolledCarousel items={carouselItems} />
+        </div>
+      {/* <UncontrolledCarousel items={carouselItems} /> */}
        
-      </Container> */}
+      {/* </Container> */}
     </div >
   );
 }

@@ -38,9 +38,30 @@ import {
   Row,
   Col,
 } from "reactstrap";
-
+import { UncontrolledCarousel } from "reactstrap";
+import ΤΗΛΕΚΑΤΑΡΤΙΣΗ from "../../assets/project/ΤΗΛΕΚΑΤΑΡΤΙΣΗ.jpg";
+// import internship from "../../assets/project/internship (2).jpg";
+import Sastramtechadmission from "../../assets/project/Sastra-mtech-admission.png"
 export default function Basics() {
   const [inputFocus, setInputFocus] = React.useState(false);
+  const carouselItems = [
+    {
+      src:ΤΗΛΕΚΑΤΑΡΤΙΣΗ,
+      altText: "Slide 1",
+      caption: ""
+    },
+    {
+      src:internship,
+      altText: "Slide 2",
+      caption: ""
+    },
+    {
+      src:
+      Sastramtechadmission,
+      altText: "Slide 3",
+      caption: ""
+    }
+  ];
   // const slider1 = React.useRef(null);
   // const slider2 = React.useRef(null);
   // React.useEffect(() => {
@@ -66,10 +87,11 @@ export default function Basics() {
       <div className="squares square5" />
       <div className="squares square6" />
       <div className="squares square7" /> */}
+      {/* <UncontrolledCarousel items={carouselItems} /> */}
       <section id="services" className=" text-white text-center">
         <div className="container">
           <div className="content-section-heading">
-            <h3 className="text-secondary mb-0" style={{ marginTop: 40 }}>Services</h3>
+            <h3 className="text-secondary mb-0" >Services</h3>
             <h2 className="mb-5">What We Offer</h2>
           </div>
           <div className="row">

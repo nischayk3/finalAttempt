@@ -48,7 +48,7 @@ export default function Index() {
       <IndexNavbar />
       <div className="wrapper">
         <PageHeader />
-        <div className="main">
+        {/* <div className="main"> */}
           <Basics />
            {/*
           <Navbars />
@@ -61,7 +61,7 @@ export default function Index() {
           <Signup />
           <Examples />
           <Download /> */}
-        </div>
+        {/* </div> */}
         {/* <Footer /> */}
       </div>
     </>
