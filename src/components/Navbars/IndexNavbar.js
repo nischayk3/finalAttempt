@@ -263,7 +263,7 @@ export default function IndexNavbar() {
               </NavItem>
               :
               // <div>
-              <NavItem>
+              <NavItem style={{display:"flex"}}>
                 <Button
                   className="btn btn btn-success"
                   color="default"
