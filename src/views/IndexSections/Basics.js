@@ -38,26 +38,57 @@ import {
   Row,
   Col,
 } from "reactstrap";
+import { useHistory, Link } from "react-router-dom";
 import { UncontrolledCarousel } from "reactstrap";
+import firstYear from "../../components/FirstYear/firstYear";
 import ΤΗΛΕΚΑΤΑΡΤΙΣΗ from "../../assets/project/ΤΗΛΕΚΑΤΑΡΤΙΣΗ.jpg";
 // import internship from "../../assets/project/internship (2).jpg";
 import Sastramtechadmission from "../../assets/project/Sastra-mtech-admission.png"
 export default function Basics() {
+  let history = useHistory();
   const [inputFocus, setInputFocus] = React.useState(false);
+
+  const learningClick = (type) => {
+    console.log("clicked explore");
+    if (type === "learning") {
+      history.push("/Learning")
+    } else if (type === "admissions") {
+      history.push("/Admissions")
+    } else if (type === "Internship") {
+      history.push("/Internship")
+    } else if (type === "Projects") {
+      history.push("/Projects")
+    }
+    // <Link to = "/Learning"></Link>
+  }
+  const yearClick = (type) => {
+    console.log("clicked explore");
+    if (type === "first") {
+      // <Link to = {firstYear}></Link>
+      history.push("/firstYear")
+    } else if (type === "admissions") {
+      history.push("/Admissions")
+    } else if (type === "Internship") {
+      history.push("/Internship")
+    } else if (type === "Projects") {
+      history.push("/Projects")
+    }
+    // <Link to = "/Learning"></Link>
+  }
   const carouselItems = [
     {
-      src:ΤΗΛΕΚΑΤΑΡΤΙΣΗ,
+      src: ΤΗΛΕΚΑΤΑΡΤΙΣΗ,
       altText: "Slide 1",
       caption: ""
     },
     {
-      src:internship,
+      src: internship,
       altText: "Slide 2",
       caption: ""
     },
     {
       src:
-      Sastramtechadmission,
+        Sastramtechadmission,
       altText: "Slide 3",
       caption: ""
     }
@@ -123,50 +154,50 @@ export default function Basics() {
           <div className="container p-0">
             <div className="row no-gutters">
               <div className="col-lg-6 order-lg-2 text-white showcase-img">
-              <img className="img-thumbnail" src={asdf} style={{ marginTop: 40 }}/>
+                <img className="img-thumbnail" src={asdf} style={{ marginTop: 40 }} />
               </div>
               <div className="col-lg-6 my-auto order-lg-1 showcase-text mt-2">
                 <div className="text-center">
                   <h2 >LEAR WHATS TRENDING</h2>
                   <h4>GET STARTED WITHOUT WASTING TIME SEARCHING RIGHT CONTENT.WE HAVE COURSES THAT ARE BEST TO UPGRADE YOUR SKILLS</h4>
-                  <div className="text-center"><a className="btn btn btn-success mt-4">EXPLORE </a></div>
+                  <div className="text-center"><Button className="btn btn btn-success mt-4" onClick={() => learningClick("learning")}>EXPLORE </Button></div>
                 </div>
               </div>
             </div>
           </div>
           <div className="row no-gutters">
             <div className="col-lg-6 text-white showcase-img" >
-            <img className="img-thumbnail" src={admission} style={{ marginTop: 40 }}/>
+              <img className="img-thumbnail" src={admission} style={{ marginTop: 40 }} />
             </div>
             <div className="col-lg-6 my-auto order-lg-1 showcase-text mt-2">
               <div className="text-center">
                 <h2 className="ml-2">GET ADMISSIONS IN TOP COLLAGES OF KARNATAKA</h2>
                 <h4>SEARCHING FOR COLLAGES? IF YOU HAVE RECENTLY FINISHED YOUR PUC/12 GET IN TOUCH WITH TO GET ADMISSION IN TOP COLLAGES OF BANGALORE!!</h4>
-                <div className="text-center"><a className="btn btn btn-success mt-4">EXPLORE </a></div>
+                <div className="text-center"><Button className="btn btn btn-success mt-4" onClick={() => learningClick("admissions")}>EXPLORE </Button></div>
               </div>
             </div>
           </div>
           <div className="row no-gutters">
             <div className="col-lg-6 order-lg-2 text-white showcase-img ">
-            <img className="img-thumbnail" src={internship} style={{ marginTop: 40 }}/>
+              <img className="img-thumbnail" src={internship} style={{ marginTop: 40 }} />
             </div>
             <div className="col-lg-6 my-auto order-lg-1 showcase-text mt-2">
               <div className="text-center">
                 <h2 >LOOKING FOR INTERNSHIP??</h2>
                 <h4>WE WILL GUIDE YOU TO GET INTERNSHIP, NO MATTER IF YOU ARE IN 1ST YEAR OR 2ND YEAR.   GET PAID INTERNSHIP IN BANGALORE. GET IN TOUCH WITH US!!</h4>
-                <div className="text-center"><a className="btn btn btn-success mt-4">EXPLORE </a></div>
+                <div className="text-center"><Button className="btn btn btn-success mt-4" onClick={() => learningClick("Internship")}>EXPLORE </Button></div>
               </div>
             </div>
           </div>
           <div className="row no-gutters">
             <div className="col-lg-6 text-white showcase-img" >
-            <img className="img-thumbnail" src={ProjectManagement} style={{ marginTop: 40 }}/>
+              <img className="img-thumbnail" src={ProjectManagement} style={{ marginTop: 40 }} />
             </div>
             <div className="col-lg-6 my-auto order-lg-1 showcase-text mt-2">
               <div className="text-center">
                 <h2 className="ml-2">STUCK WITH PROJECTS??</h2>
                 <h4>GET GUIDENCE FOR SELECTING PROJECT WHICH CAN HELP YOU LEARN IN-DEMAND SKILLS TO GET JOB EASILY.GET IN TOUCH WITH US FOR MORE INFORMATION</h4>
-                <div className="text-center"><a className="btn btn btn-success mt-4">EXPLORE </a></div>
+                <div className="text-center"><Button className="btn btn btn-success mt-4" onClick={() => learningClick("Projects")}>EXPLORE </Button></div>
               </div>
             </div>
           </div>
@@ -184,7 +215,7 @@ export default function Basics() {
               <div className="card" >
                 <div className="card-body bg-#adb5bd">
                   <h4><strong>FIRST YEAR</strong></h4>
-                  <div className="text-center"><a className="btn btn btn-primary mt-4" >VIEW NOTES</a></div>
+                  <div className="text-center"><Button className="btn btn btn-primary mt-4" onClick={()=>yearClick("first")} >VIEW NOTES</Button></div>
                   <p className="mb-0 text-faded"></p>
                 </div>
               </div>

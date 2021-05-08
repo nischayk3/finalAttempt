@@ -33,7 +33,7 @@ function admission() {
                                     <td> <h4>NITTE MEENAKSHI INSTITUTE OF TECHNOLOGY</h4></td>
                                 </tr>
                                 <tr>
-                                    <td><h4>SJB INSTITUTE OF TECHNOLOGY</h4><a href="#"><p>VIEW FULL LIST-></p></a></td>
+                                    <td><h4>SJB INSTITUTE OF TECHNOLOGY</h4><a href="#"><p>VIEW FULL LIST</p></a></td>
                                 </tr>
 
                             </tbody>
@@ -46,47 +46,47 @@ function admission() {
             </div>
             <h2 class="text-white text-center mt-5">GET ADMISSION IN COLLAGE OF YOUR CHOICE.. FEEL FREE TO CONTACT US!!</h2>
             <section id="contact" class="mt-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-5 text-center">
-                <img src={image2} />
-            </div>
-            <div class="col-lg-6 text-center">
-                <h2 class="text-uppercase section-heading">Contact Us</h2>
-
-
-
-
-                <form id="contactForm" novalidate="novalidate">
-                    <div class="form-row">
-                        <div class="col col-md-6">
-                            <div class="form-group"><input type="text" class="form-control" id="name"
-                                    placeholder="Your Name *" name="firstName"  required /><small
-                                    class="form-text text-danger flex-grow-1 help-block lead"></small></div>
-                            <div class="form-group"><input type="email" class="form-control" id="email"
-                                    placeholder="Your Email *" name="email"  required /><small
-                                    class="form-text text-danger help-block lead"></small></div>
-                            <div class="form-group"><input type="tel" class="form-control" placeholder="Your Phone *" name="phnumber"
-                                    required /><small class="form-text text-danger help-block lead"></small></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5 text-center">
+                            <img src={image2} />
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group"><textarea class="form-control" id="message"
-                                    placeholder="Your Message *" name="message"  required></textarea><small
-                                    class="form-text text-danger help-block lead"></small></div>
-                        </div>
-                        <div class="col">
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="col-lg-12 text-center">
-                            <div id="success"></div><button class="btn btn-primary btn-xl text-uppercase"
-                                id="sendMessageButton" type="submit">Send Message</button>
+                        <div class="col-lg-6 text-center">
+                            <h2 class="text-uppercase section-heading">Contact Us</h2>
+
+
+
+
+                            <form id="contactForm" novalidate="novalidate">
+                                <div class="form-row">
+                                    <div class="col col-md-6">
+                                        <div class="form-group"><input type="text" class="form-control" id="name"
+                                            placeholder="Your Name *" name="firstName" required /><small
+                                                class="form-text text-danger flex-grow-1 help-block lead"></small></div>
+                                        <div class="form-group"><input type="email" class="form-control" id="email"
+                                            placeholder="Your Email *" name="email" required /><small
+                                                class="form-text text-danger help-block lead"></small></div>
+                                        <div class="form-group"><input type="tel" class="form-control" placeholder="Your Phone *" name="phnumber"
+                                            required /><small class="form-text text-danger help-block lead"></small></div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group"><textarea class="form-control" id="message"
+                                            placeholder="Your Message *" name="message" required></textarea><small
+                                                class="form-text text-danger help-block lead"></small></div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="col-lg-12 text-center">
+                                        <div id="success"></div><button class="btn btn-primary btn-xl text-uppercase"
+                                            id="sendMessageButton" type="submit">Send Message</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
+                </div>
+            </section>
         </div>
     )
 }

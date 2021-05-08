@@ -37,6 +37,8 @@ import {
 } from "reactstrap";
 import asdf from "../../assets/project/logo.png"
 import { useHistory } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContext"
+import fire from "../../fire"
 import "./style.scss";
 
 export default function IndexNavbar() {
@@ -44,6 +46,7 @@ export default function IndexNavbar() {
   const [collapseOpen, setCollapseOpen] = React.useState(false);
   const [collapseOut, setCollapseOut] = React.useState("");
   const [color, setColor] = React.useState("navbar-transparent");
+  const { logout, currentUser } = useAuth()
   React.useEffect(() => {
     window.addEventListener("scroll", changeColor);
     return function cleanup() {
@@ -90,12 +93,27 @@ export default function IndexNavbar() {
   function Projects() {
     history.push("/Projects");
   }
+  function SignUp() {
+    history.push("/register-page");
+  }
+  function Login() {
+    history.push("/Login");
+  }
+  async function logoutApp() {
+    try {
+      await logout()
+      history.push("/Login");
+    } catch {
+      console.log("error while logout")
+    }
+
+  }
   return (
     <Navbar className={"fixed-top " + color} color-on-scroll="100" expand="lg" >
       <Container>
         <div className="navbar-translate" >
           <NavbarBrand to="/" tag={Link} id="navbar-brand">
-            <a class="navbar-brand js-scroll-trigger" href="/" style={{ width: 100,marginTop :15 }}><img alt="sample" className="img-thumbnail" src={asdf} /></a>
+            <a class="navbar-brand js-scroll-trigger" href="/" style={{ width: 280, marginTop: 15 }}><img alt="sample" className="img-thumbnail" src={asdf} /></a>
 
           </NavbarBrand>
 
@@ -193,7 +211,7 @@ export default function IndexNavbar() {
                 color="default"
                 onClick={learning}
                 size="sm"
-                style ={{width :113,marginTop :15}}
+                style={{ width: 113, marginTop: 15 }}
               >
                 LEARNING
               </Button>
@@ -204,7 +222,7 @@ export default function IndexNavbar() {
                 color="default"
                 onClick={Admissions}
                 size="sm"
-                style ={{width :113,marginTop :15}}
+                style={{ width: 113, marginTop: 15 }}
               >
                 ADMISSIONS
               </Button>
@@ -215,7 +233,7 @@ export default function IndexNavbar() {
                 color="default"
                 onClick={Internship}
                 size="sm"
-                style ={{width :113,marginTop :15}}
+                style={{ width: 113, marginTop: 15 }}
               >
                 INTERNSHIP
               </Button>
@@ -226,46 +244,54 @@ export default function IndexNavbar() {
                 color="default"
                 onClick={Projects}
                 size="sm"
-                style ={{width :113,marginTop :15}}
+                style={{ width: 113, marginTop: 15 }}
               >
                 PROJECTS
               </Button>
             </NavItem>
-            <NavItem>
-              <Button
-                className="btn btn btn-success"
-                color="default"
-              // onClick={scrollToDownload}
-              size="sm"
-              style ={{width :113,marginTop :15}}
-              >
-                LogIn
+            {currentUser ?
+              <NavItem>
+                <Button
+                  className="btn btn btn-success"
+                  color="default"
+                  onClick={logoutApp}
+                  size="sm"
+                  style={{ width: 113, marginTop: 15 }}
+                >
+                  LOGOUT
+                </Button>
+              </NavItem>
+              :
+              // <div>
+              <NavItem>
+                <Button
+                  className="btn btn btn-success"
+                  color="default"
+                  onClick={Login}
+                  size="sm"
+                  style={{ width: 113, marginTop: 15 }}
+                >
+                  LogIn
               </Button>
-            </NavItem>
-            <NavItem>
-              <Button
-                className="btn btn btn-success"
-                color="default"
-              // onClick={scrollToDownload}
-              size="sm"
-              style ={{width :113,marginTop :15}}
-              >
-                SignUp
+                <Button
+                  className="btn btn btn-success"
+                  color="default"
+                  onClick={SignUp}
+                  size="sm"
+                  style={{ width: 113, marginTop: 15 }}
+                >
+                  SignUp
               </Button>
-            </NavItem>
-            <NavItem>
-              <Button
-                className="btn btn btn-success"
-                color="default"
-              // onClick={scrollToDownload}
-              size="sm"
-              style ={{width :113,marginTop :15}}
-              >
-                LOGOUT
-              </Button>
-            </NavItem>
-          {/* <div className="collapse navbar-collapse" id="navbarResponsive"> */}
-          {/* <ul className="ml-auto navbar-nav">
+              </NavItem>
+              // <NavItem>
+
+              // </NavItem>
+              // </div>
+            }
+
+
+            {/* <div className="collapse navbar-collapse" id="navbarResponsive"> */}
+            {/* <ul className="ml-auto navbar-nav">
             <li className="dropdown nav-item"><a className="nav-link"
             ><NavItem>
                 <Button
@@ -308,13 +334,13 @@ export default function IndexNavbar() {
               </NavItem></a></li>
 
           </ul> */}
-          {/* <span className="navbar-text actions"><a className="login h4 btn btn btn-success"
+            {/* <span className="navbar-text actions"><a className="login h4 btn btn btn-success"
               >Log In</a><a
                 className="btn btn btn-success"
               > Sign Up</a > <a
                 className="btn btn btn-success"  > LOGOUT</a ></span > */}
-          {/* </div > */}
-          {/* <NavItem className="p-0">
+            {/* </div > */}
+            {/* <NavItem className="p-0">
               <NavLink
                 data-placement="bottom"
                 href="https://twitter.com/CreativeTim"
@@ -350,7 +376,7 @@ export default function IndexNavbar() {
                 <p className="d-lg-none d-xl-none">Instagram</p>
               </NavLink>
             </NavItem> */}
-          {/* <UncontrolledDropdown nav>
+            {/* <UncontrolledDropdown nav>
               <DropdownToggle
                 caret
                 color="default"

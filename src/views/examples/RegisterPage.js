@@ -15,8 +15,9 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React from "react";
+import React,{useState} from "react";
 import classnames from "classnames";
+import Navbars from "../../components/Navbars/IndexNavbar";
 // reactstrap components
 import {
   Button,
@@ -37,7 +38,10 @@ import {
   Row,
   Col,
 } from "reactstrap";
-
+import fire from "../../fire"
+import { useAuth } from "../../contexts/AuthContext"
+import { Link, useHistory } from "react-router-dom"
+// import { useHistory } from "react-router-dom";
 // core components
 import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
 import Footer from "components/Footer/Footer.js";
@@ -48,6 +52,32 @@ export default function RegisterPage() {
   const [fullNameFocus, setFullNameFocus] = React.useState(false);
   const [emailFocus, setEmailFocus] = React.useState(false);
   const [passwordFocus, setPasswordFocus] = React.useState(false);
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const { signup } = useAuth()
+  let history = useHistory();
+
+  const handlechange = (val, type) => {
+    if (type === "email") {
+      console.log("email", val)
+      setEmail(val)
+    } else {
+      console.log("pass", val)
+      setPassword(val)
+    }
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      // setError("")
+      // setLoading(true)
+      await signup(email, password)
+      history.push("/")
+    } catch {
+      console.log("Failed to create an account")
+    }
+  }
   React.useEffect(() => {
     document.body.classList.toggle("register-page");
     document.documentElement.addEventListener("mousemove", followCursor);
@@ -56,28 +86,29 @@ export default function RegisterPage() {
       document.body.classList.toggle("register-page");
       document.documentElement.removeEventListener("mousemove", followCursor);
     };
-  },[]);
+  }, []);
   const followCursor = (event) => {
     let posX = event.clientX - window.innerWidth / 2;
     let posY = event.clientY - window.innerWidth / 6;
     setSquares1to6(
       "perspective(500px) rotateY(" +
-        posX * 0.05 +
-        "deg) rotateX(" +
-        posY * -0.05 +
-        "deg)"
+      posX * 0.05 +
+      "deg) rotateX(" +
+      posY * -0.05 +
+      "deg)"
     );
     setSquares7and8(
       "perspective(500px) rotateY(" +
-        posX * 0.02 +
-        "deg) rotateX(" +
-        posY * -0.02 +
-        "deg)"
+      posX * 0.02 +
+      "deg) rotateX(" +
+      posY * -0.02 +
+      "deg)"
     );
   };
   return (
     <>
-      <ExamplesNavbar />
+      {/* <ExamplesNavbar /> */}
+      <Navbars />
       <div className="wrapper">
         <div className="page-header">
           <div className="page-header-image" />
@@ -137,6 +168,7 @@ export default function RegisterPage() {
                             type="text"
                             onFocus={(e) => setEmailFocus(true)}
                             onBlur={(e) => setEmailFocus(false)}
+                            onChange={(e) => handlechange(e.target.value,"email")}
                           />
                         </InputGroup>
                         <InputGroup
@@ -154,6 +186,7 @@ export default function RegisterPage() {
                             type="text"
                             onFocus={(e) => setPasswordFocus(true)}
                             onBlur={(e) => setPasswordFocus(false)}
+                            onChange={(e) => handlechange(e.target.value,"password")}
                           />
                         </InputGroup>
                         <FormGroup check className="text-left">
@@ -172,7 +205,7 @@ export default function RegisterPage() {
                       </Form>
                     </CardBody>
                     <CardFooter>
-                      <Button className="btn-round" color="primary" size="lg">
+                      <Button className="btn-round" color="primary" size="lg" onClick={handleSubmit}>
                         Get Started
                       </Button>
                     </CardFooter>
@@ -213,7 +246,7 @@ export default function RegisterPage() {
             </Container>
           </div>
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </>
   );
